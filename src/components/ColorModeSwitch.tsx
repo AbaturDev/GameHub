@@ -2,11 +2,15 @@ import { HStack, Switch, Text } from "@chakra-ui/react";
 import { useColorMode } from "./ui/color-mode";
 
 export const ColorModeSwitch = () => {
-  const { toggleColorMode } = useColorMode();
+  const { toggleColorMode, colorMode } = useColorMode();
 
   return (
     <HStack>
-      <Switch.Root onCheckedChange={toggleColorMode} colorPalette="green">
+      <Switch.Root
+        onCheckedChange={toggleColorMode}
+        colorPalette="green"
+        checked={colorMode === "dark"}
+      >
         <Switch.HiddenInput />
         <Switch.Control />
         <Switch.Label />
